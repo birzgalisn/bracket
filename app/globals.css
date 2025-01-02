@@ -19,3 +19,34 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.with-connector:after {
+  @apply absolute left-[calc(100%_+_1px)] w-5 border border-l-0 border-solid border-slate-200 content-['_'];
+}
+.with-connector:nth-child(odd):after {
+  @apply top-2/4 border-b-0;
+}
+.with-connector:nth-child(even):after {
+  @apply bottom-2/4 border-t-0;
+}
+.round:nth-child(1) .with-connector:after {
+  @apply h-[60px];
+}
+.round:nth-child(2) .with-connector:after {
+  @apply h-[120px];
+}
+.round:nth-child(3) .with-connector:after {
+  @apply h-[240px];
+}
+.round:nth-child(4) .with-connector:after {
+  @apply h-[480px];
+}
+.round:nth-child(5) .with-connector:after {
+  @apply h-[960px];
+}
+.round:last-child .with-connector:after {
+  @apply hidden;
+}
+.round + .round .with-connector:before {
+  @apply absolute right-[calc(100%_+_1px)] top-2/4 w-5 border-t border-solid border-t-slate-200 content-['_'];
+}
