@@ -14,7 +14,7 @@ body {
 }
 
 .with-connector:after {
-  @apply absolute left-[calc(100%_+_1px)] w-5 border border-l-0 border-solid border-slate-200 content-['_'];
+  @apply absolute left-full w-5 border-2 border-l-0 border-[#e6e6e6] content-['_'];
 }
 .with-connector:nth-child(odd):after {
   @apply top-2/4 border-b-0;
@@ -41,5 +41,5 @@ body {
   @apply hidden;
 }
 .round + .round .with-connector:before {
-  @apply absolute right-[calc(100%_+_1px)] top-2/4 w-5 border-t border-solid border-t-slate-200 content-['_'];
+  @apply absolute right-full top-2/4 w-5 border-t-2 border-[#e6e6e6] content-['_'];
 }

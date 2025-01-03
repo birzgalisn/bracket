@@ -17,11 +17,11 @@ export default function generateRounds(bracketSize = initialSize) {
       const teamIndex = i * 2 + 1;
 
       matchups.push({
-        teamA: {
+        contenderA: {
           name: `Team ${teamIndex}`,
           score: generateNumber(),
         },
-        teamB: {
+        contenderB: {
           name: `Team ${teamIndex + 1}`,
           score: generateNumber(),
         },

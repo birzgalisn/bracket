@@ -1,15 +1,12 @@
-import BracketRound from '@/app/components/bracket-round';
-import BracketMatchup from '@/app/components/bracket-matchup';
+import Round from '@/app/components/bracket-round';
 
 export default function Bracket({
   children,
   className = '',
-}: {
-  children: React.ReactNode;
-  className?: React.HTMLProps<HTMLDivElement>['className'];
-}) {
+  ...props
+}: React.PropsWithChildren & React.HTMLProps<HTMLDivElement>) {
   return (
-    <div className={`flex-1 overflow-auto ${className}`}>
+    <div className={`flex-1 overflow-auto ${className}`} {...props}>
       <div className="flex">
         <div className="flex items-stretch gap-10">{children}</div>
       </div>
@@ -17,5 +14,4 @@ export default function Bracket({
   );
 }
 
-Bracket.Round = BracketRound;
-Bracket.Matchup = BracketMatchup;
+Bracket.Round = Round;

@@ -1,25 +1,26 @@
-import { useId } from 'react';
+import React, { useId } from 'react';
 
 import { initialSize, availableSizes } from '@/app/hooks/use-size-slider';
 
 export default function SizeSlider({
   size = initialSize,
-  children,
   onSizeChange,
   sizeOptions = availableSizes,
+  children,
   className = 'flex w-64 flex-col font-medium',
+  ...props
 }: {
-  size: number;
-  children: React.ReactNode;
+  size?: number;
   onSizeChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   sizeOptions?: number[];
-  className?: React.HTMLProps<HTMLDivElement>['className'];
-}) {
+} & React.PropsWithChildren &
+  React.HTMLProps<HTMLDivElement>) {
   const sliderId = useId();
 
   return (
-    <div className={className}>
+    <div className={className} {...props}>
       <label htmlFor={`size-slider-${sliderId}`}>{children}</label>
+
       <input
         type="range"
         id={`size-slider-${sliderId}`}
@@ -30,6 +31,7 @@ export default function SizeSlider({
         onChange={onSizeChange}
         className="w-full"
       />
+
       <datalist id={`size-slider-${sliderId}-sizes`}>
         {sizeOptions.map((size) => (
           <option key={`size-${size}`} value={size} />
