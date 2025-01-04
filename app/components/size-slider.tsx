@@ -13,8 +13,7 @@ export default function SizeSlider({
   size?: number;
   onSizeChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   sizeOptions?: number[];
-} & React.PropsWithChildren &
-  React.HTMLProps<HTMLDivElement>) {
+} & React.HTMLProps<HTMLDivElement>) {
   const sliderId = useId();
 
   return (

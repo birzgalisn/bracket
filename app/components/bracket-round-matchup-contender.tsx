@@ -31,8 +31,7 @@ export default function MatchupContender({
   ...props
 }: {
   profile: Contender;
-} & React.PropsWithChildren &
-  React.HTMLProps<HTMLDivElement>) {
+} & React.HTMLProps<HTMLDivElement>) {
   return (
     <MatchupContenderContext.Provider value={{ profile }}>
       <div className={`flex h-full w-full ${className}`} {...props}>

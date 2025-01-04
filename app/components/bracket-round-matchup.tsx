@@ -32,8 +32,7 @@ export default function RoundMatchup({
 }: {
   matchup: Matchup;
   additional: React.ReactNode;
-} & React.PropsWithChildren &
-  React.HTMLProps<HTMLLIElement>) {
+} & React.HTMLProps<HTMLLIElement>) {
   return (
     <RoundMatchupContext.Provider value={{ matchup }}>
       <li

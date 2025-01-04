@@ -5,7 +5,7 @@ export default function MatchupAdditional({
   children,
   className = '',
   ...props
-}: React.PropsWithChildren & React.HTMLProps<HTMLDivElement>) {
+}: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
       className={`absolute top-full z-0 mt-[0.125rem] flex w-full text-[#86909f] ${className}`}
