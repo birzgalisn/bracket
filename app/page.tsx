@@ -39,14 +39,9 @@ export default function Home() {
                   key={`round-${roundIndex}-matchup-${matchupIndex}`}
                   matchup={matchup}
                   additional={
-                    <Bracket.Round.Matchup.Additional className="justify-between">
-                      <Bracket.Round.Matchup.Additional.Info>
-                        Round 1 - 22 oct 2024, 11:00 - Court 4
-                      </Bracket.Round.Matchup.Additional.Info>
-
-                      <Bracket.Round.Matchup.Additional.Link>
-                        View more
-                      </Bracket.Round.Matchup.Additional.Link>
+                    <Bracket.Round.Matchup.Additional>
+                      <Bracket.Round.Matchup.Additional.Info />
+                      <Bracket.Round.Matchup.Additional.Link />
                     </Bracket.Round.Matchup.Additional>
                   }
                 >

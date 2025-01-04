@@ -1,14 +1,13 @@
 export default function AdditionalInfo({
-  children,
   className = '',
   ...props
-}: React.HTMLProps<HTMLSpanElement>) {
+}: Omit<React.HTMLProps<HTMLSpanElement>, 'children'>) {
   return (
     <span
-      className={`truncate whitespace-nowrap text-xs leading-none text-inherit ${className}`}
+      className={`w-full truncate whitespace-nowrap text-xs leading-none text-inherit ${className}`}
       {...props}
     >
-      {children}
+      Round 1 - 22 oct 2024, 11:00 - Court 4
     </span>
   );
 }

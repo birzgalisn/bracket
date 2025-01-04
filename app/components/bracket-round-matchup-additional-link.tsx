@@ -1,14 +1,14 @@
 export default function AdditionalLink({
-  children,
   className = '',
   ...props
-}: React.HTMLProps<HTMLAnchorElement>) {
+}: Omit<React.HTMLProps<HTMLAnchorElement>, 'children'>) {
   return (
     <a
+      href="#"
       className={`ml-1 cursor-pointer whitespace-nowrap text-xs leading-none text-inherit hover:text-blue-500 hover:underline ${className}`}
       {...props}
     >
-      {children}
+      View more
     </a>
   );
 }
