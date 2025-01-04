@@ -5,10 +5,10 @@ export default function RoundHead({
   children,
   className = '',
   ...props
-}: React.PropsWithChildren & React.HTMLProps<HTMLDivElement>) {
+}: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={`flex flex-col items-center rounded-lg bg-[#f2f3f4] py-2 text-center ${className}`}
+      className={`sticky top-0 flex flex-col items-center rounded-lg bg-[#f2f3f4] py-2 text-center ${className}`}
       {...props}
     >
       {children}

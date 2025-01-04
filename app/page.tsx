@@ -26,15 +26,11 @@ export default function Home() {
           {rounds.map((round, roundIndex) => (
             <Bracket.Round
               key={`round-${roundIndex}`}
+              round={round}
               head={
                 <Bracket.Round.Head>
-                  <Bracket.Round.Head.Title>
-                    Round {roundIndex + 1}
-                  </Bracket.Round.Head.Title>
-
-                  <Bracket.Round.Head.Subtitle>
-                    {round.matches} matches
-                  </Bracket.Round.Head.Subtitle>
+                  <Bracket.Round.Head.Title />
+                  <Bracket.Round.Head.Subtitle />
                 </Bracket.Round.Head>
               }
             >
