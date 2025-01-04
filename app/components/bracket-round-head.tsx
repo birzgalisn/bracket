@@ -8,7 +8,7 @@ export default function RoundHead({
 }: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={`sticky top-0 flex flex-col items-center rounded-lg bg-[#f2f3f4] py-2 text-center ${className}`}
+      className={`sticky top-0 z-10 mb-6 flex flex-col items-center rounded-lg bg-[#f2f3f4] py-2 text-center ${className}`}
       {...props}
     >
       {children}

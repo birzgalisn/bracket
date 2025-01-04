@@ -33,12 +33,12 @@ export default function BracketRound({
   return (
     <BracketRoundContext.Provider value={{ round }}>
       <div
-        className={`round relative flex h-full flex-grow flex-col gap-6 ${className}`}
+        className={`round relative flex h-full flex-grow flex-col ${className}`}
         {...props}
       >
         {head}
 
-        <ol className="relative flex h-full flex-col justify-around gap-6">
+        <ol className="relative flex h-full flex-col justify-between gap-6">
           {children}
         </ol>
       </div>
