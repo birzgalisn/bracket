@@ -14,13 +14,13 @@ body {
 }
 
 .with-connector:after {
-  @apply absolute left-full w-5 border-2 border-l-0 border-[#e6e6e6] content-['_'];
+  @apply absolute left-full w-[20px] border-2 border-l-0 border-[#e6e6e6] content-['_'];
 }
 .with-connector:nth-child(odd):after {
-  @apply top-2/4 border-b-0;
+  @apply top-[calc(50%_-_1px)] border-b-0;
 }
 .with-connector:nth-child(even):after {
-  @apply bottom-2/4 border-t-0;
+  @apply bottom-[calc(50%_-_1px)] border-t-0;
 }
 .round:nth-child(1) .with-connector:after {
   @apply h-[60px];
@@ -41,5 +41,5 @@ body {
   @apply hidden;
 }
 .round + .round .with-connector:before {
-  @apply absolute right-full top-2/4 w-5 border-t-2 border-[#e6e6e6] content-['_'];
+  @apply absolute right-full top-[calc(50%_-_1px)] w-[22px] border-t-2 border-[#e6e6e6] content-['_'];
 }
