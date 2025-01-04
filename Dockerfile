@@ -37,4 +37,4 @@ USER next
 
 EXPOSE 3000/tcp
 
-CMD [ "bun", "server.js" ]
+CMD [ "bun", "run", "server.js" ]
