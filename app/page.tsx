@@ -14,11 +14,7 @@ export default function Home() {
     <main className="flex h-dvh flex-col bg-white p-6">
       <h1 className="mb-6 flex gap-6 text-3xl font-semibold text-[#0a2540]">
         Draws
-        <SizeSlider
-          size={size}
-          onSizeChange={handleSizeChange}
-          className="w-48"
-        />
+        <SizeSlider size={size} onSizeChange={handleSizeChange} />
       </h1>
 
       <Bracket>
