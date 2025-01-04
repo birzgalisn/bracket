@@ -41,7 +41,7 @@ export default function Home() {
                 }
               >
                 <Bracket.Round.Matchup.Contender
-                  profile={matchup.contenderA}
+                  contender={matchup.contenderA}
                   className="-mb-[1px] overflow-hidden rounded-t-lg border-2 border-[#eef2f6]"
                 >
                   <Bracket.Round.Matchup.Contender.Info>
@@ -58,7 +58,7 @@ export default function Home() {
                 </Bracket.Round.Matchup.Contender>
 
                 <Bracket.Round.Matchup.Contender
-                  profile={matchup.contenderB}
+                  contender={matchup.contenderB}
                   className="-mt-[1px] overflow-hidden rounded-b-lg border-2 border-[#eef2f6]"
                 >
                   <Bracket.Round.Matchup.Contender.Info>

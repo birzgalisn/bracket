@@ -5,7 +5,7 @@ export default function ContenderName({
   className = '',
   ...props
 }: React.HTMLProps<HTMLDivElement>) {
-  const { profile } = useMatchupContenderContext();
+  const { contender } = useMatchupContenderContext();
 
   return (
     <div className={`flex flex-col gap-1 ${className}`} {...props}>
@@ -13,7 +13,7 @@ export default function ContenderName({
         suppressHydrationWarning
         className="font-semibold leading-none text-[#425466]"
       >
-        {profile.name}
+        {contender.name}
       </span>
 
       {children}

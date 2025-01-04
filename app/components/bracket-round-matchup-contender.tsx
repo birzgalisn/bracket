@@ -9,7 +9,7 @@ import ContenderFlag from '@/app/components/bracket-round-matchup-contender-flag
 import ContenderScore from '@/app/components/bracket-round-matchup-contender-score';
 
 export const MatchupContenderContext = createContext<{
-  profile: Contender;
+  contender: Contender;
 } | null>(null);
 
 export function useMatchupContenderContext() {
@@ -25,15 +25,15 @@ export function useMatchupContenderContext() {
 }
 
 export default function MatchupContender({
-  profile,
+  contender,
   children,
   className = '',
   ...props
 }: {
-  profile: Contender;
+  contender: Contender;
 } & React.HTMLProps<HTMLDivElement>) {
   return (
-    <MatchupContenderContext.Provider value={{ profile }}>
+    <MatchupContenderContext.Provider value={{ contender }}>
       <div className={`flex h-full w-full ${className}`} {...props}>
         {children}
       </div>
