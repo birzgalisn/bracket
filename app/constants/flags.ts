@@ -1,4 +1,4 @@
-const flags = [
+const flags = Object.freeze([
   'ad',
   'ae',
   'af',
@@ -250,6 +250,6 @@ const flags = [
   'za',
   'zm',
   'zw',
-];
+]);
 
 export default flags;
