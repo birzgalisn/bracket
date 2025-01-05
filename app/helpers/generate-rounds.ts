@@ -2,6 +2,7 @@ import { Matchup, Round } from '@/app/types';
 
 import { initialSize } from '@/app/hooks/use-size-slider';
 import generateNumber from '@/app/helpers/generate-number';
+import roundNameConventions from '@/app/constants/round-name-conventions';
 
 export default function generateRounds(bracketSize = initialSize) {
   const rounds: Round[] = [];
@@ -29,7 +30,7 @@ export default function generateRounds(bracketSize = initialSize) {
     }
 
     rounds.push({
-      name: `Round ${rounds.length + 1}`,
+      name: roundNameConventions[bracketSize][rounds.length],
       matches: matchups.length,
       matchups,
     });
