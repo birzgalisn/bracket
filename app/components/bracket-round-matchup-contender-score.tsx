@@ -4,6 +4,7 @@ import { useRoundMatchupContext } from '@/app/components/bracket-round-matchup';
 import { useBracketDispatch } from '@/app/components/bracket';
 import { updateScores } from '@/app/hooks/use-bracket';
 import getMetadata from '@/app/helpers/get-metadata';
+import updateArrayAt from '@/app/helpers/update-array-at';
 
 export default function ContenderScore({
   className = '',
@@ -27,11 +28,11 @@ export default function ContenderScore({
       }
 
       const updatedScore = +event.target.value || 0;
-      const newScores = [
-        ...contenderScores.slice(0, scoreIndex),
+      const newScores = updateArrayAt(
+        contenderScores,
+        scoreIndex,
         updatedScore,
-        ...contenderScores.slice(scoreIndex + 1),
-      ];
+      );
 
       dispatch(updateScores({ matchupId, contenderId, newScores }));
     };
