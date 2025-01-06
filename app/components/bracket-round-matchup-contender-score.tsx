@@ -54,7 +54,7 @@ export default function ContenderScore({
               readOnly={!matchup[opponentPosition]}
               defaultValue={score}
               onBlur={handleScoreUpdate(scoreIndex)}
-              className={`w-8 text-center ${isWinningScore ? 'text-[#ff6646]' : ''}`}
+              className={`flex h-full w-8 items-center justify-center text-center ${isWinningScore ? 'text-[#ff6646]' : ''}`}
             />
           </ScoreItem>
         );
@@ -67,14 +67,16 @@ function ScoreItem({
   isWinningScore = false,
   children,
   className = '',
+  ...props
 }: { isWinningScore: boolean } & React.HTMLProps<HTMLSpanElement>) {
   return (
     <span
-      className={`flex items-center justify-center border-l-2 border-inherit font-semibold ${
+      className={`flex border-l-2 border-inherit font-semibold ${
         isWinningScore
           ? 'bg-gradient-to-t from-[#ff5d3b]/15 via-white group-hover:bg-inherit group-hover:bg-none'
           : 'text-[#425466]'
       } ${className} `}
+      {...props}
     >
       {children}
     </span>
