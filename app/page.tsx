@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <main className="flex h-dvh flex-col bg-white p-6">
-      <h1 className="mb-6 flex gap-6 text-3xl font-semibold text-[#0a2540]">
+      <h1 className="mb-6 flex items-center gap-6 text-3xl font-semibold text-[#0a2540]">
         Bracket
         <SizeSlider size={size} onSizeChange={handleSizeChange} />
       </h1>
