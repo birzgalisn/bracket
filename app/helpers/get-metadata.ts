@@ -7,18 +7,18 @@ export default function getMetadata(
 ) {
   const isContenderA = contender?.id === matchup.contenderA?.id;
 
-  const bracketPosition = isContenderA ? 'contenderA' : 'contenderB';
+  const matchupPosition = isContenderA ? 'contenderA' : 'contenderB';
   const opponentPosition = isContenderA ? 'contenderB' : 'contenderA';
 
   const isWinner = hasWinningScore(
-    matchup[bracketPosition]?.scores,
+    matchup[matchupPosition]?.scores,
     matchup[opponentPosition]?.scores,
   );
 
   return {
     isContenderA,
     isContenderB: !isContenderA,
-    bracketPosition,
+    matchupPosition,
     opponentPosition,
     isWinner,
   } as const;

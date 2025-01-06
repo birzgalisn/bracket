@@ -12,7 +12,7 @@ export default function ContenderScore({
   const dispatch = useBracketDispatch();
   const { matchup } = useRoundMatchupContext();
   const { contender } = useMatchupContenderContext();
-  const { bracketPosition, opponentPosition } = getMetadata(matchup, contender);
+  const { matchupPosition, opponentPosition } = getMetadata(matchup, contender);
 
   const contenderScores = contender?.scores ?? [];
   const opponentScores = matchup[opponentPosition]?.scores ?? [];
@@ -47,7 +47,7 @@ export default function ContenderScore({
         return (
           <ScoreItem
             isWinningScore={isWinningScore}
-            key={`${matchup.id}-${bracketPosition}-score-${scoreIndex}`}
+            key={`${matchup.id}-${matchupPosition}-score-${scoreIndex}`}
           >
             <EditableText
               readOnly={!matchup[opponentPosition]}
