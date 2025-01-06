@@ -50,6 +50,7 @@ export default function ContenderScore({
             key={`${matchup.id}-${bracketPosition}-score-${scoreIndex}`}
           >
             <EditableText
+              readOnly={!matchup[opponentPosition]}
               defaultValue={score}
               onBlur={handleScoreUpdate(scoreIndex)}
               className={`w-8 text-center ${isWinningScore ? 'text-[#ff6646]' : ''}`}
