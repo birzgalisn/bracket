@@ -1,19 +1,22 @@
 import Image from 'next/image';
 
-import getRandomFlagUrl from '@/app/helpers/get-random-flag-url';
+import { useMatchupContenderContext } from '@/app/components/bracket-round-matchup-contender';
+import contenderDefaults from '@/app/constants/contender-defaults';
 
 export default function ContenderFlag({
   className = '',
   ...props
 }: Omit<React.HTMLProps<HTMLDivElement>, 'children'>) {
-  const flagSrc = getRandomFlagUrl();
+  const { contender } = useMatchupContenderContext();
+  const flag = contender?.flag ?? contenderDefaults.flag;
+  const src = `/flags/${flag}.svg`;
 
   return (
     <div
-      className={`relative mx-1 mt-[0.125rem] aspect-[16/9] h-3 ${className}`}
+      className={`relative mt-[0.125rem] aspect-[16/9] h-3 ${className}`}
       {...props}
     >
-      <Image fill suppressHydrationWarning src={flagSrc} alt="Flag" />
+      <Image suppressHydrationWarning fill src={src} alt="Flag" />
     </div>
   );
 }

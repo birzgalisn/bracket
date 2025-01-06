@@ -1,39 +1,41 @@
-import { Matchup, Round } from '@/app/types';
-
+import { MatchupNode, Round } from '@/app/types';
 import { initialSize } from '@/app/hooks/use-size-slider';
-import generateNumber from '@/app/helpers/generate-number';
-import roundNameConventions from '@/app/constants/round-name-conventions';
+import roundConventionsReversed from '@/app/constants/round-conventions-reversed';
 
-export default function generateRounds(bracketSize = initialSize) {
+export default function generateRounds(root?: MatchupNode, size = initialSize) {
+  if (!root) {
+    return [];
+  }
+
   const rounds: Round[] = [];
+  const queue: MatchupNode[] = [root];
 
-  for (
-    let matches = bracketSize;
-    matches >= 1;
-    matches = Math.floor(matches / 2)
-  ) {
-    const matchups: Matchup[] = [];
+  while (queue.length > 0) {
+    const matchups: MatchupNode[] = [];
+    const levelLength = queue.length;
 
-    for (let i = 0; i < matches; i++) {
-      const teamIndex = i * 2 + 1;
+    for (let i = 0; i < levelLength; i++) {
+      const node = queue.shift();
 
-      matchups.push({
-        contenderA: {
-          name: `Team ${teamIndex}`,
-          score: generateNumber(),
-        },
-        contenderB: {
-          name: `Team ${teamIndex + 1}`,
-          score: generateNumber(),
-        },
-      });
+      if (node) {
+        matchups.push(node);
+
+        if (node.left) {
+          queue.push(node.left);
+        }
+
+        if (node.right) {
+          queue.push(node.right);
+        }
+      }
     }
 
-    rounds.push({
-      name: roundNameConventions[bracketSize][rounds.length],
-      matches: matchups.length,
-      matchups,
-    });
+    if (matchups.length > 0) {
+      rounds.push({
+        name: roundConventionsReversed[size][rounds.length],
+        matchups,
+      });
+    }
   }
 
   return rounds;

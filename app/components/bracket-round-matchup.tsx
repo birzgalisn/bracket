@@ -1,22 +1,21 @@
 import { createContext, useContext } from 'react';
 
-import { Matchup } from '@/app/types';
-
+import { MatchupNode } from '@/app/types';
 import MatchupContender from '@/app/components/bracket-round-matchup-contender';
 import MatchupAdditional from '@/app/components/bracket-round-matchup-additional';
 import MatchupClub from '@/app/components/bracket-round-matchup-club';
 import MatchupPlace from '@/app/components/bracket-round-matchup-place';
 
-export const RoundMatchupContext = createContext<{ matchup: Matchup } | null>(
-  null,
-);
+export const RoundMatchupContext = createContext<{
+  matchup: MatchupNode;
+} | null>(null);
 
 export function useRoundMatchupContext() {
   const matchupContext = useContext(RoundMatchupContext);
 
   if (!matchupContext) {
     throw new Error(
-      '`Bracket.Round.Matchup.*` component must be rendered as child of `Matchup` component',
+      '`useRoundMatchupContext` must be used within a `Bracket.Round.Matchup.*`',
     );
   }
 
@@ -30,7 +29,7 @@ export default function RoundMatchup({
   className = '',
   ...props
 }: {
-  matchup: Matchup;
+  matchup: MatchupNode;
   additional: React.ReactNode;
 } & React.HTMLProps<HTMLLIElement>) {
   return (

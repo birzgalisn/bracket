@@ -11,7 +11,7 @@ export default function HeadSubtitle({
       className={`text-sm font-thin leading-none text-[#86909f] ${className}`}
       {...props}
     >
-      {round.matches} matches
+      {round.matchups.length} matches
     </p>
   );
 }

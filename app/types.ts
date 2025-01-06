@@ -1,5 +1,19 @@
-export type Contender = { name: string; score: number };
+import { Flag } from '@/app/constants/flags';
 
-export type Matchup = { contenderA: Contender; contenderB: Contender };
+export type Contender = {
+  id: string;
+  no: number;
+  flag: Flag;
+  name: string;
+  scores: number[];
+};
 
-export type Round = { name: string; matches: number; matchups: Matchup[] };
+export type MatchupNode = {
+  id?: string;
+  contenderA?: Contender;
+  contenderB?: Contender;
+  left?: MatchupNode;
+  right?: MatchupNode;
+};
+
+export type Round = { name: string; matchups: MatchupNode[] };

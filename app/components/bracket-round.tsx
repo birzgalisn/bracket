@@ -13,7 +13,7 @@ export function useBracketRoundContext() {
 
   if (!roundContext) {
     throw new Error(
-      '`Bracket.Round.*` component must be rendered as child of `Round` component',
+      '`useBracketRoundContext` must be used within a `Bracket.Round.*`',
     );
   }
 
@@ -28,7 +28,7 @@ export default function BracketRound({
   ...props
 }: {
   round: Round;
-  head: React.ReactNode;
+  head?: React.ReactNode;
 } & React.HTMLProps<HTMLDivElement>) {
   return (
     <BracketRoundContext.Provider value={{ round }}>

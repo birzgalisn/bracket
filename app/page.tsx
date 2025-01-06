@@ -1,23 +1,23 @@
 'use client';
 
+import useSizeSlider from '@/app/hooks/use-size-slider';
+import useBracket from '@/app/hooks/use-bracket';
+
 import SizeSlider from '@/app/components/size-slider';
 import Bracket from '@/app/components/bracket';
 
-import useSizeSlider from '@/app/hooks/use-size-slider';
-import generateRounds from '@/app/helpers/generate-rounds';
-
 export default function Home() {
   const { size, handleSizeChange } = useSizeSlider();
-  const rounds = generateRounds(size);
+  const [rounds, dispatch] = useBracket(size);
 
   return (
     <main className="flex h-dvh flex-col bg-white p-6">
       <h1 className="mb-6 flex gap-6 text-3xl font-semibold text-[#0a2540]">
-        Draws
+        Bracket
         <SizeSlider size={size} onSizeChange={handleSizeChange} />
       </h1>
 
-      <Bracket>
+      <Bracket dispatch={dispatch}>
         {rounds.map((round, roundIndex) => (
           <Bracket.Round
             key={`round-${roundIndex}`}
@@ -42,7 +42,7 @@ export default function Home() {
               >
                 <Bracket.Round.Matchup.Contender
                   contender={matchup.contenderA}
-                  className="-mb-[1px] overflow-hidden rounded-t-lg border-2 border-[#eef2f6]"
+                  className="-mb-px overflow-hidden rounded-t-lg border-2 border-[#eef2f6]"
                 >
                   <Bracket.Round.Matchup.Contender.Info>
                     <Bracket.Round.Matchup.Contender.No />
@@ -59,7 +59,7 @@ export default function Home() {
 
                 <Bracket.Round.Matchup.Contender
                   contender={matchup.contenderB}
-                  className="-mt-[1px] overflow-hidden rounded-b-lg border-2 border-[#eef2f6]"
+                  className="-mt-px overflow-hidden rounded-b-lg border-2 border-[#eef2f6]"
                 >
                   <Bracket.Round.Matchup.Contender.Info>
                     <Bracket.Round.Matchup.Contender.No />

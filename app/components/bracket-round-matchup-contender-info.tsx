@@ -4,7 +4,10 @@ export default function ContenderInfo({
   ...props
 }: React.HTMLProps<HTMLDivElement>) {
   return (
-    <div className={`my-auto flex w-full align-top ${className}`} {...props}>
+    <div
+      className={`my-auto flex w-full gap-1 align-top ${className}`}
+      {...props}
+    >
       {children}
     </div>
   );
