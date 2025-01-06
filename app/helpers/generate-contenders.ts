@@ -8,7 +8,7 @@ export default function generateContenders(bracketSize = initialSize) {
   const contenders: Contender[] = [];
 
   for (let id = 0; id < bracketSize * 2; id++) {
-    const no = id + 1;
+    const no = `${id + 1}`;
     const flag = flags[generateNumber(flags.length - 1)];
     const name = `Team ${no}`;
     const scores = contenderDefaults.scores;

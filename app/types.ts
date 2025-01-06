@@ -2,7 +2,7 @@ import { Flag } from '@/app/constants/flags';
 
 export type Contender = {
   id: string;
-  no: number;
+  no: string;
   flag: Flag;
   name: string;
   scores: number[];
