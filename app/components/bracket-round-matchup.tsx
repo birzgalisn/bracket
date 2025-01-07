@@ -24,13 +24,20 @@ export function useRoundMatchupContext() {
 
 export default function RoundMatchup({
   matchup,
-  additional,
+  additional = (
+    <>
+      <RoundMatchup.Additional>
+        <RoundMatchup.Additional.Info />
+        <RoundMatchup.Additional.Link />
+      </RoundMatchup.Additional>
+    </>
+  ),
   children,
   className = '',
   ...props
 }: {
   matchup: MatchupNode;
-  additional: React.ReactNode;
+  additional?: React.ReactNode;
 } & React.HTMLProps<HTMLLIElement>) {
   return (
     <RoundMatchupContext.Provider value={{ matchup }}>

@@ -22,7 +22,14 @@ export function useBracketRoundContext() {
 
 export default function BracketRound({
   round,
-  head,
+  head = (
+    <>
+      <BracketRound.Head>
+        <BracketRound.Head.Title />
+        <BracketRound.Head.Subtitle />
+      </BracketRound.Head>
+    </>
+  ),
   children,
   className = '',
   ...props

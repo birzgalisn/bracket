@@ -18,61 +18,18 @@ export default function Home() {
       </h1>
 
       <Bracket dispatch={dispatch}>
-        {rounds.map((round, roundIndex) => (
-          <Bracket.Round
-            key={`round-${roundIndex}`}
-            round={round}
-            head={
-              <Bracket.Round.Head>
-                <Bracket.Round.Head.Title />
-                <Bracket.Round.Head.Subtitle />
-              </Bracket.Round.Head>
-            }
-          >
-            {round.matchups.map((matchup, matchupIndex) => (
-              <Bracket.Round.Matchup
-                key={`round-${roundIndex}-matchup-${matchupIndex}`}
-                matchup={matchup}
-                additional={
-                  <Bracket.Round.Matchup.Additional>
-                    <Bracket.Round.Matchup.Additional.Info />
-                    <Bracket.Round.Matchup.Additional.Link />
-                  </Bracket.Round.Matchup.Additional>
-                }
-              >
+        {rounds.map((round) => (
+          <Bracket.Round key={round.name} round={round}>
+            {round.matchups.map((matchup) => (
+              <Bracket.Round.Matchup key={matchup.id} matchup={matchup}>
                 <Bracket.Round.Matchup.Contender
+                  isTop={true}
                   contender={matchup.contenderA}
-                  className="-mb-px overflow-hidden rounded-t-lg border-2 border-[#eef2f6]"
-                >
-                  <Bracket.Round.Matchup.Contender.Info>
-                    <Bracket.Round.Matchup.Contender.No />
-
-                    <Bracket.Round.Matchup.Contender.Flag />
-
-                    <Bracket.Round.Matchup.Contender.Name>
-                      <Bracket.Round.Matchup.Club />
-                    </Bracket.Round.Matchup.Contender.Name>
-                  </Bracket.Round.Matchup.Contender.Info>
-
-                  <Bracket.Round.Matchup.Contender.Score />
-                </Bracket.Round.Matchup.Contender>
-
+                />
                 <Bracket.Round.Matchup.Contender
+                  isTop={false}
                   contender={matchup.contenderB}
-                  className="-mt-px overflow-hidden rounded-b-lg border-2 border-[#eef2f6]"
-                >
-                  <Bracket.Round.Matchup.Contender.Info>
-                    <Bracket.Round.Matchup.Contender.No />
-
-                    <Bracket.Round.Matchup.Contender.Flag />
-
-                    <Bracket.Round.Matchup.Contender.Name>
-                      <Bracket.Round.Matchup.Place />
-                    </Bracket.Round.Matchup.Contender.Name>
-                  </Bracket.Round.Matchup.Contender.Info>
-
-                  <Bracket.Round.Matchup.Contender.Score />
-                </Bracket.Round.Matchup.Contender>
+                />
               </Bracket.Round.Matchup>
             ))}
           </Bracket.Round>
