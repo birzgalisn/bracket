@@ -10,9 +10,10 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md,mdx,graphql,gql}\""
   },
   "dependencies": {
+    "babel-plugin-react-compiler": "^19.0.0-beta-27714ef-20250124",
+    "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.6"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
