@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md,mdx,graphql,gql}\""
+    "format": "prettier --write \"**/*.{js,cjs,mjs,jsx,ts,tsx,css,json,md,mdx,graphql,gql}\""
   },
   "dependencies": {
     "babel-plugin-react-compiler": "^19.0.0-beta-27714ef-20250124",
