@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -110,5 +108,5 @@ body {
 }
 
 .round + .round .with-connector:before {
-  @apply absolute right-full top-[calc(50%_-_1px)] w-5 border-t-2 border-[#e6e6e6] content-['_'];
+  @apply absolute top-[calc(50%_-_1px)] right-full w-5 border-t-2 border-[#e6e6e6] content-['_'];
 }
